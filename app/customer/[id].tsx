@@ -28,14 +28,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Colors from '../../constants/colors';
 import { useAppStore } from '../../store/appStore';
 import { formatDate, formatCurrency, getDaysOverdue, isOverdue, formatDateShort } from '../../utils/dateUtils';
-import { Customer, Debt, ReminderData } from '../../types';
+import { Customer, Debt, ReminderData, Payment } from '../../types';
 import PaymentModal from '../../components/PaymentModal';
 import ReminderModal from '../../components/ReminderModal';
 
 export default function CustomerDetailsScreen() {
   const { id } = useLocalSearchParams();
   const insets = useSafeAreaInsets();
-  const { customers, debts, updateDebt, deleteDebt, deleteCustomer, addPayment, getRemainingAmount, reminderSettings } = useAppStore();
+  const { customers, debts, updateDebt, deleteDebt, deleteCustomer, addPayment, getRemainingAmount, reminderSettings, getPaymentsForDebt } = useAppStore();
   
   const [customer, setCustomer] = useState<Customer | null>(null);
   const [customerDebts, setCustomerDebts] = useState<Debt[]>([]);
@@ -71,7 +71,12 @@ export default function CustomerDetailsScreen() {
   // تسديد دين
   const handleAddPayment = (amount: number, notes?: string) => {
     if (selectedDebt) {
-      addPayment(selectedDebt.id, amount, notes);
+      addPayment({
+        debt_id: selectedDebt.id,
+        amount,
+        date: Date.now(),
+        notes,
+      });
       Alert.alert('تم التسديد', `تم تسديد ${formatCurrency(amount)} بنجاح`);
     }
   };
@@ -146,7 +151,8 @@ export default function CustomerDetailsScreen() {
   // عرض كل دين
   const renderDebtItem = ({ item }: { item: Debt }) => {
     const remainingAmount = getRemainingAmount(item);
-    const hasPayments = Array.isArray(item.payments) && item.payments.length > 0;
+    const payments = getPaymentsForDebt(item.id);
+    const hasPayments = payments.length > 0;
     
     return (
       <View style={styles.debtCard}>
@@ -192,7 +198,7 @@ export default function CustomerDetailsScreen() {
         {hasPayments && (
           <View style={styles.paymentsSection}>
             <Text style={styles.paymentsTitle}>المدفوعات:</Text>
-            {(item.payments || []).slice(0, 3).map((payment) => (
+            {payments.slice(0, 3).map((payment: Payment) => (
               <View key={payment.id} style={styles.paymentItem}>
                 <Text style={styles.paymentAmount}>
                   {formatCurrency(typeof payment.amount === 'number' ? payment.amount : 0)}
@@ -202,9 +208,9 @@ export default function CustomerDetailsScreen() {
                 </Text>
               </View>
             ))}
-            {(item.payments || []).length > 3 && (
+            {payments.length > 3 && (
               <Text style={styles.morePayments}>
-                +{(item.payments || []).length - 3} مدفوعات أخرى
+                +{payments.length - 3} مدفوعات أخرى
               </Text>
             )}
           </View>

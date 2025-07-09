@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "702299085047",
+    "project_id": "debt-3c726",
+    "storage_bucket": "debt-3c726.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702299085047:android:a138f62f00c4e7dcf39bf2",
+        "android_client_info": {
+          "package_name": "com.yousseffabrics.ycfapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "702299085047-o3ahi9qvd4daemoba7km7nrh8rj42ijv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVXtAEhEDMJe6Za85DZFPn3w05cA2mPCw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "702299085047-o3ahi9qvd4daemoba7km7nrh8rj42ijv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

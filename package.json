@@ -1,0 +1,44 @@
+{
+  "name": "ycfapp",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo run:android",
+    "ios": "expo run:ios",
+    "web": "expo start --web"
+  },
+  "dependencies": {
+    "@expo/metro-config": "~0.20.0",
+    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-community/datetimepicker": "8.4.1",
+    "@react-native-community/netinfo": "^11.4.1",
+    "@supabase/supabase-js": "^2.50.3",
+    "expo": "53.0.19",
+    "expo-auth-session": "~6.2.1",
+    "expo-background-fetch": "^13.1.6",
+    "expo-clipboard": "~7.1.5",
+    "expo-notifications": "~0.31.0",
+    "expo-status-bar": "~2.2.3",
+    "expo-task-manager": "^13.1.6",
+    "expo-updates": "~0.28.17",
+    "expo-web-browser": "~14.2.0",
+    "expo-system-ui": "~5.0.10",
+    "lucide-react-native": "^0.525.0",
+    "react": "19.0.0",
+    "react-native": "0.79.5",
+    "react-native-date-picker": "^5.0.13",
+    "react-native-get-random-values": "~1.11.0",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-svg": "15.11.2",
+    "uuid": "^11.1.0",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.0.10",
+    "@types/uuid": "^10.0.0",
+    "typescript": "~5.8.3"
+  },
+  "private": true
+}

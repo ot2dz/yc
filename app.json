@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "ديون زبائن يوسف للأقمشة",
+    "slug": "ycfapp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "sdkVersion": "53.0.0",
+    "scheme": "ycfapp",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#2563eb"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.yousseffabrics.ycfapp",
+      "runtimeVersion": {
+        "policy": "appVersion"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#2563eb"
+      },
+      "edgeToEdgeEnabled": true,
+      "package": "com.yousseffabrics.ycfapp",
+      "versionCode": 1,
+      "permissions": [],
+      "runtimeVersion": "1.0.0"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-web-browser"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "9ba139bd-0632-473f-b3ae-b2e1ee59aa24"
+      }
+    },
+    "owner": "ot2dz",
+    "updates": {
+      "enabled": false
+    }
+  }
+}
